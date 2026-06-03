@@ -1,5 +1,0 @@
-{
-    "board": "arduino:avr:uno",
-    "port": "COM11",
-    "sketch": "PotTester.ino"
-}
