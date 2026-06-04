@@ -29,6 +29,9 @@ The GUI was built directly on top of the Adobe Illustrator layout created during
 
 The theme throughout is **dark grey background with light orange dials**, giving a clear contrast that works well in low-light studio conditions.
 
+<img width="237" height="237" alt="illustration-design-of-idea" src="https://github.com/user-attachments/assets/3fd03665-af99-47ba-b9d8-095ed13bd8b6" />
+
+
 ### Software-Only Controls (not on hardware)
 
 The GUI includes several controls that exist only in the software and have no hardware counterpart:
@@ -56,6 +59,8 @@ All plugin parameters are controlled via float values between `0.0` and `1.0`. E
 - `1.0` = +15dB (maximum)
 
 This normalised 0–1 range is consistent across all plugins in the patch, regardless of the actual parameter units used by each plugin internally.
+
+<img width="225" height="262" alt="vst-test-in-maxmsp" src="https://github.com/user-attachments/assets/ffc8a882-d433-4225-b4cb-e2801531c636" />
 
 ### Bypass Control
 
@@ -102,6 +107,9 @@ When a selector button is pressed, a message `1` is sent to the gate for that pr
 
 Crucially, if a dial is moved while its gate is closed and you then re-select that processor, **the plugin parameter does not jump** to the new dial position. This is because the gate output goes to nothing; the last sent value remains in the plugin until the dial is moved again with the gate open. This prevents audible parameter jumps when switching between processors mid-session.
 
+<img width="251" height="121" alt="dials-working-with-gates" src="https://github.com/user-attachments/assets/d7eda97e-cafc-40fc-abc7-cfa89aae8fe3" />
+
+
 ### Handling Pairs (EQ1/EQ2, C1/C2, L1/L2)
 
 For processors that share one set of physical dials (e.g. both EQ1 and EQ2 are controlled by the same 12 EQ pots), there is a master gate for the EQ section that must be open, and then a second layer of gates that routes specifically to EQ1's `vst~` or EQ2's `vst~` depending on which was last selected. Pressing EQ1 routes all EQ dial movements to the first EQ plugin; pressing EQ2 routes them to the second, without affecting the first.
@@ -121,6 +129,8 @@ The transport bar was built using a combination of Max objects:
 
 A parallel set of the same objects with `myBuffTwo` as the common variable handles the reference track.
 
+<img width="474" height="370" alt="transport-playback-code-for-master" src="https://github.com/user-attachments/assets/44546b87-12de-49a8-84b5-5f2c9b0750e0" />
+
 ### Stop
 
 Sends `0` to the play/pause toggle (resetting it to pause state) and sends `0` and then `pos 0` into `sfplay~` to return the track to the beginning. Also resets the reference track position simultaneously.
@@ -132,6 +142,8 @@ A toggle outputs `0` or `1`. An `if` statement converts this:
 - `if $f1 <= 0 then bang` → triggers `pause` message to `sfplay~`
 
 A similar `if` variant handles the play/pause state for the reference track.
+
+<img width="468" height="218" alt="sfplay-for-buttons-pressed" src="https://github.com/user-attachments/assets/e9e43cf5-6d23-4015-9103-eb65e745ac6d" />
 
 ### Seek Forward / Rewind (±10%)
 
@@ -191,6 +203,12 @@ The toggle button outputs `0` or `1`. Because `selector~` expects `1` or `2` (no
 
 ---
 
+<img width="292" height="279" alt="if-statements-maxmsp" src="https://github.com/user-attachments/assets/13a2034a-b8bd-417b-86eb-b11e74aa962e" />
+
+
+<img width="296" height="255" alt="two-selector-creating-ab-maxmsp" src="https://github.com/user-attachments/assets/306a144e-15fa-4faa-a9d7-ade585e11dd9" />
+
+
 ## Real-Time Export
 
 Export is handled by `sfrecord~ 2` placed at the end of the signal chain, after the final limiter.
@@ -238,6 +256,9 @@ unpack 47           ← splits the 47 space-separated values into 47 individual 
 each outlet → its corresponding dial, toggle, or button object in the patch
 ```
 
+<img width="468" height="246" alt="arduino-to-maxmsp" src="https://github.com/user-attachments/assets/92add580-c2c0-45e9-9c5c-da722063fa5e" />
+
+
 ### Potentiometer Scaling
 
 Pot values arrive as raw integers `0–1023` from the Teensy. A `scale` object maps this to the `0.0–1.0` float range expected by `vst~` parameters. However, due to real-world analogue variability, the actual range of some pots was narrower than the theoretical maximum (e.g. EQ pots averaging ~990 instead of 1023 at maximum, with a ceiling pot ranging only 190–1015). The scale objects were adjusted to match the actual measured ranges of each pot.
@@ -258,6 +279,8 @@ Steps taken during the build process:
 
 1. Added a custom app icon using a script named `appicon` with an `.icns` file included via `Include File...`
 2. All audio assets (TTS `.aif` files, design PNGs) were included in the same folder as the patch before building so they bundle correctly into the app
+
+<img width="468" height="246" alt="arduino-to-maxmsp" src="https://github.com/user-attachments/assets/d37e5ffc-716f-4b79-9b34-c4afdc9e3f1d" />
 
 ### Startup Fixes Using `loadbang` / `loadmess`
 
