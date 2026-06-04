@@ -12,15 +12,21 @@ The hardware layout went through two hand-drawn drafts before a final digital de
 
 **First draft** established the rough concept: a top row of processor selectors, a middle section of parameters, and a transport bar at the bottom. It also identified a missing gain parameter that was added in the next iteration.
 
+<img width="264" height="264" alt="First-Draft-For-Mastering-Console-Drawing" src="https://github.com/user-attachments/assets/e3bbecdc-e4b3-46d6-95d5-b45a925415d5" />
+
 **Second draft** finalised:
 - The number and placement of all potentiometers
 - The layout of the transport bar (Stop, Play/Pause, Rewind, Forward)
 - The decision to place all on/off bypass buttons on the left or right corner of their respective processing section
 
+<img width="229" height="229" alt="Second-draft-for-mastering-console-drawing" src="https://github.com/user-attachments/assets/ed0c9515-9141-4586-a77e-02eba0466cce" />
+
 **Final Illustrator design** translated the sketch into a precise, measured layout that could be drawn directly onto wood. The colour coding in the illustration served a functional purpose during build:
 - **Coloured circles** = potentiometers (27 total)
 - **Transparent circles with on/off symbols** = PCB touch sensor buttons (19 total)
 - **Rectangular slider** = volume slider potentiometer (1 total)
+
+<img width="237" height="237" alt="illustration-design-of-idea" src="https://github.com/user-attachments/assets/99d26623-f585-4d88-90ab-1692f02a28f8" />
 
 ### Design Inspiration
 
@@ -28,7 +34,11 @@ Two existing products directly influenced the layout:
 
 **iZotope Ozone 8** — the concept of a signal chain selector bar at the top with the selected processor's parameters displayed beneath it. This became the top selector row of the KMC.
 
+<img width="984" height="486" alt="ozone-inspiration" src="https://github.com/user-attachments/assets/7b19f36b-1f57-4239-be9d-1c778bebd8d8" />
+
 **Lurssen Mastering Console (IK Multimedia)** — the approach of having all processing parameters visible and accessible in the GUI simultaneously, rather than hidden behind tabs. This informed the decision to keep all parameter sections permanently laid out in the middle of the hardware rather than collapsing them.
+
+<img width="416" height="312" alt="Lurssen-mastering-console" src="https://github.com/user-attachments/assets/3dcf7e9b-a4db-4bb0-a818-fb45bbf3677a" />
 
 ---
 
@@ -97,6 +107,11 @@ Switching to two Teensy microcontrollers resolved both issues. The Teensy has 42
 
 The casing sides were built from **5mm bamboo veneer single plyboard sheet**, hot-glued together at the joints for strength.
 
+<img width="243" height="136" alt="thickness-of-board" src="https://github.com/user-attachments/assets/da6cb3a4-c478-4de3-8b48-a0509ab37e47" />
+
+<img width="223" height="135" alt="front-of-board" src="https://github.com/user-attachments/assets/bafb3d40-f5a4-46cc-8301-429bb2331e77" />
+
+
 ### Measurements and Scaling
 
 All measurements were derived from the component dimensions:
@@ -113,6 +128,8 @@ Initial wiring used a single 164mm × 52mm solderless breadboard. Once all compo
 
 This was resolved by switching to two smaller 84mm × 55mm solderless breadboards, allowing the internal components to be arranged more compactly.
 
+<img width="452" height="232" alt="wires-being-tested-with-breadboard" src="https://github.com/user-attachments/assets/7dfac642-c172-46e3-ad2a-c7c2c26d115f" />
+
 ### Casing and Access
 
 Three holes were drilled through the casing sides:
@@ -127,6 +144,13 @@ A hinged rear panel was added for internal access. Construction:
 
 ---
 
+<img width="233" height="182" alt="cabinet-roller-catch-design" src="https://github.com/user-attachments/assets/9fd28835-0c1c-4706-97c8-02ae0b02d70b" />
+
+<img width="340" height="353" alt="wiring-inside-case" src="https://github.com/user-attachments/assets/7e292ac3-af94-461c-99b9-eb4058a30407" />
+
+<img width="223" height="183" alt="hinges" src="https://github.com/user-attachments/assets/fe8a5cb4-ba40-4b61-8054-90136ef0bf57" />
+
+
 ## Braille Implementation
 
 All parameter labels on the hardware are printed in both standard text (handwritten directly onto the wood) and **Unified English Braille Grade 1 (UEB)**.
@@ -136,6 +160,8 @@ All parameter labels on the hardware are printed in both standard text (handwrit
 Uncontracted braille spells every word out in full and is the form most widely learned first. Contracted (Grade 2) braille uses shorthand symbols and requires more experience to read. Grade 1 was chosen to maximise accessibility to the widest range of visually impaired users, including those who are newer to braille.
 
 **Unified English Braille (UEB)** was adopted as the standard, as it has been the internationally unified code since Australia adopted it in 2005, followed by Canada, the UK, and the US by 2012.
+
+<img width="453" height="453" alt="final-front-design" src="https://github.com/user-attachments/assets/e9bcd1d9-8a33-46b4-b8e8-4fc33863d937" />
 
 ### Translation and Verification
 
@@ -224,6 +250,8 @@ Each section (excluding Gain) has a bypass touch sensor button in its corner to 
 | A/B | Touch sensor |
 
 ---
+
+<img width="225" height="237" alt="software-design" src="https://github.com/user-attachments/assets/3eb1eda1-44e3-4ff9-8b89-7e12f8514f16" />
 
 ## Known Limitations and Future Improvements
 
