@@ -110,6 +110,8 @@ The visual difference corresponds directly to the listening comparison: the prof
 
 ---
 
+<img width="748" height="472" alt="master-comparisons-all-three" src="https://github.com/user-attachments/assets/dd0259af-af31-4ce9-9f7f-1fdbbc2179f9" />
+
 ## Listening Comparison
 
 All three masters were compared across multiple monitors. The most significant differences were heard in the busiest section of the track (bars 40–57).
