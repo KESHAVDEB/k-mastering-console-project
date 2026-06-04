@@ -257,6 +257,8 @@ if (err == DeserializationError::Ok) {
 
 The `if` guard is important — if the JSON arrived corrupted or incomplete (which can happen at high serial throughput), the previous valid values are kept rather than overwriting with garbage. Each value is cast to `int` using `.as<int>()` to match the type expected by the `Mixer` data structure.
 
+<img width="271" height="296" alt="JSON-keys-with-teensyMixer" src="https://github.com/user-attachments/assets/e5b00dff-e513-4f13-85f0-b4304faaa596" />
+
 **Step 5: Send everything to Max/MSP**
 
 ```cpp
@@ -264,6 +266,12 @@ mixer.sendMixerToMax();
 ```
 
 This calls a method defined in `Mixer.cpp` that builds a space-separated string of all values in a fixed order and prints it to `Serial` (USB). Max/MSP's `serial` object reads this stream and the `unpack` object separates it into 47 individual number streams — one per hardware parameter.
+
+<img width="138" height="261" alt="string-values-with-spaces" src="https://github.com/user-attachments/assets/d59072b7-d9c8-492e-8c8a-34de4ffdeff8" />
+
+<img width="216" height="229" alt="sendMixerToMax" src="https://github.com/user-attachments/assets/93d7493a-9ff6-489d-9fd6-72c72e3e1a4d" />
+
+<img width="137" height="230" alt="sendMixerToMaxV2" src="https://github.com/user-attachments/assets/f78ae2dc-0932-4d00-97b1-15f0c98bb8b7" />
 
 ---
 
